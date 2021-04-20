@@ -42,8 +42,8 @@
                 <br>
                 <select class="form-select" aria-label="Default select example" id="payment">
                     <option selected>Pilih</option>
-                    <option value="CASH">CASH</option>
-                    <option value="PAY LATER">PAY LATER</option>
+                    <option value="1">Cash</option>
+                    <option value="2">Pay Later</option>
                 </select>
             </div>
             <div class="col-md-6">
