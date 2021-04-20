@@ -13,9 +13,10 @@
 <body>
     <div class="container">
         <br>
-        <form class="row" action="/cari">
+        <form class="row" action="{{url('cari')}}" method="POST">
+            {{ csrf_field() }}
             <div class="col-mb-3">
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="No Invoice">
+                <input type="text" class="form-control" id="no_invoice" placeholder="No Invoice" name="no_invoice">
             </div>
             <div class="col">
                 <button type="submit" class="btn btn-primary">Cari</button>
@@ -25,6 +26,7 @@
     <div class="container">
         <br>
         <form class="row">
+            {{ csrf_field() }}
             <div class="col-md-6">
                 <label for="invoice_date" class="form-label">Invoice Date</label>
                 <input type="date" class="form-control" id="invoice_date">
@@ -41,9 +43,8 @@
                 <label for="payment" class="form-label">Payment Type</label>
                 <br>
                 <select class="form-select" aria-label="Default select example" id="payment">
-                    <option selected>Pilih</option>
-                    <option value="1">Cash</option>
-                    <option value="2">Pay Later</option>
+                    <option value="CASH">Cash</option>
+                    <option value="PAY LATER">Pay Later</option>
                 </select>
             </div>
             <div class="col-md-6">
@@ -51,7 +52,7 @@
                 <br>
                 <select class="form-select" aria-label="Default select example" id="sales">
                     <?php foreach ($sales as $s) { ?>
-                        <option value="<?= $s->sales_name ?>"><?= $s->sales_name ?></option>
+                        <option value="<?= $s->id_sales ?>"><?= $s->sales_name ?></option>
                     <?php } ?>
                 </select>
             </div>
@@ -60,7 +61,7 @@
                 <br>
                 <select class="form-select" aria-label="Default select example" id="courier">
                     <?php foreach ($courier as $c) { ?>
-                        <option value="<?= $c->courier_name ?>"><?= $c->courier_name ?></option>
+                        <option value="<?= $c->id_courier ?>"><?= $c->courier_name ?></option>
                     <?php } ?>
                 </select>
             </div>
@@ -70,18 +71,16 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col">item</th>
+                                <th scope="col">Weight(Kg)</th>
+                                <th scope="col">QTY</th>
+                                <th scope="col">Unit Price</th>
+                                <th scope="col">Total</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
+                                <td colspan="5">Data Kosong</td>
                             </tr>
                         </tbody>
                     </table>

@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', [barangController::class, 'index']);
+Route::post('cari', [barangController::class, 'cari']);
+Route::post('cari/save', [barangController::class, 'save']);
