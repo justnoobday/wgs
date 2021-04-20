@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href=" {{ mix('css/app.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('/bootstrap/css/bootstrap.css') }}">
 </head>
 
 <body>
@@ -40,29 +41,27 @@
                 <label for="payment" class="form-label">Payment Type</label>
                 <br>
                 <select class="form-select" aria-label="Default select example" id="payment">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option selected>Pilih</option>
+                    <option value="CASH">CASH</option>
+                    <option value="PAY LATER">PAY LATER</option>
                 </select>
             </div>
             <div class="col-md-6">
                 <label for="sales" class="form-label">Sales Name</label>
                 <br>
                 <select class="form-select" aria-label="Default select example" id="sales">
-                    @foreach($sales as $s)
-                    <option value="{{$s->sales_name}}">{{$s->sales_name}}</option>
-                    @endforeach
+                    <?php foreach ($sales as $s) { ?>
+                        <option value="<?= $s->sales_name ?>"><?= $s->sales_name ?></option>
+                    <?php } ?>
                 </select>
             </div>
             <div class="col-12 mb-5">
                 <label for="courier" class="form-label">Courier</label>
                 <br>
                 <select class="form-select" aria-label="Default select example" id="courier">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <?php foreach ($courier as $c) { ?>
+                        <option value="<?= $c->courier_name ?>"><?= $c->courier_name ?></option>
+                    <?php } ?>
                 </select>
             </div>
 
@@ -94,6 +93,11 @@
         </form>
     </div>
     <script src="{{ mix('js/app.js') }}"></script>
+</body>
+<script type="text/javascript" src="{{ asset('/bootstrap/js/bootstrap.js') }}"></script>
+
+<body>
+
 </body>
 
 </html>
