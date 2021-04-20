@@ -16,6 +16,7 @@ class Controller extends BaseController
     {
 
         $sales = DB::table('sales')->get();
-        return view('index', ['sales' => $sales]);
+        $courier = DB::table('courier')->get();
+        return view('index', ['sales' => $sales, 'courier' => $courier]);
     }
 }
